@@ -114,16 +114,17 @@ meta.tsv
 harmony_umap.coords.tsv.gz
 ```
 
-The metadata are used to group cells into the manuscript display categories.
+The exact coordinate table used for Figure 2a was:
 
-The provenance of `harmony_umap.coords.tsv.gz` is not documented in the current
-repository. Before public release, either:
+harmony_umap.coords.tsv.gz
 
-1. document exactly how these coordinates were generated and provide the
-   generating code, or
-2. deposit the coordinate table as a derived artifact with clear provenance.
+SHA-256:
+3977c24d7ce099ecd0d445541802543c669e08b93f6a75cf1aeb798f80adc8f7
 
-The figure script should also be refactored to remove hard-coded local paths.
+This file contains precomputed Harmony/UMAP coordinates and is treated as a
+derived analysis artifact. The original generating script is not currently
+part of this repository. The exact coordinate table used for the manuscript
+should therefore be deposited with the derived reproducibility artifacts.
 
 ---
 
