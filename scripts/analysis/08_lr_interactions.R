@@ -10,13 +10,16 @@
 # tables. No vis_good, visHE or merged-object dependency.
 #
 # SECTION SET
-# This stage uses FIVE sections, not the usual six: 723 is absent. Confirm and
-# record the reason -- every other stage uses GOOD_SECTIONS. The literal is kept
-# explicit below rather than substituting GOOD_SECTIONS, so the difference stays
-# visible instead of being silently unified.
+# This stage uses five sections rather than all six GOOD_SECTIONS.
+# Section 723 was excluded from the ligand-receptor niche analysis because its
+# hotspot-neighbourhood permutation analysis did not reproduce the recurrent
+# zone-neighbourhood pattern observed in the other retained sections. In
+# particular, its hotspots were not consistently associated with the same
+# Myeloid/Mesenchymal neighbourhood structure used to define the spatial niche
+# interrogated here.
 #
-# Zones are additionally excluded per section where coverage is inadequate
-# (see zone_exclude_sections).
+# The exclusion therefore reflects the spatial niche criterion for this
+# downstream LR analysis, not failure of the earlier lymphocyte-hotspot QC.
 #
 # Inputs
 # ------
@@ -77,8 +80,9 @@ out_nichen <- ensure_dir(file.path(out_root, "nichenet"))
 out_final  <- ensure_dir(file.path(out_root, "final_pair_sets"))
 out_rds    <- ensure_dir(file.path(out_root, "rds"))
 
-# NOTE: five sections, not GOOD_SECTIONS. 723 is deliberately absent here.
-# See header. Do not substitute GOOD_SECTIONS without checking why.
+# Five sections showing the recurrent hotspot-neighbourhood niche pattern.
+# Section 723 remains part of GOOD_SECTIONS for upstream hotspot analyses but is
+# excluded here based on the neighbourhood permutation analysis described above.
 good_sections <- c("459", "812", "821", "928", "1239")
 
 zones_to_test <- c("Myeloid", "Mesenchymal", "Vascular")
