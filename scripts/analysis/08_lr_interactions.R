@@ -348,6 +348,22 @@ load_cellphonedb_resource <- function() {
 # -------------------------
 # NicheNet resources
 # -------------------------
+# NicheNet resource provenance
+# nichenetr 2.2.1.1, GitHub commit: 2d5c1ab
+#
+# Exact local resources used for the final analysis:
+#
+# ligand_target_matrix_nsga2r_final.rds
+# SHA-256:
+# 699fce17ff65e2511277359696306bb130aa833bd7f30dd9290ad9efd9dc9c5d
+#
+# lr_network_human_21122021.rds
+# SHA-256:
+# 47c971d2fbba4ecd0ba7485d1846a74054432a0d1a97ea3e6a79ae27d0da8094
+#
+# weighted_networks_nsga2r_final.rds
+# SHA-256:
+# 3de79d664b09a5cc89b569fa9d8b0e8ad650f07f968d0d41f9c1cb7a00032e3a
 organism_nichenet <- "human"
 nichenet_resource_dir <- file.path(out_res, "nichenet")
 dir.create(nichenet_resource_dir, recursive = TRUE, showWarnings = FALSE)
