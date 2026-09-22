@@ -92,10 +92,24 @@ zone_score_col <- c(
   Vascular = "Vascular_score"
 )
 
+# Zone-specific exclusions
+# ------------------------
+# These exclusions are based on insufficient hotspot-neighbourhood support for
+# the corresponding zone in the section-level permutation analysis.
+#
+# Section 1239 is excluded from the Myeloid LR analysis because too few hotspot
+# neighbourhoods showed the recurrent Myeloid-associated pattern.
+#
+# Section 928 is excluded from the Vascular LR analysis for the analogous reason:
+# too few hotspot neighbourhoods showed sufficient Vascular neighbourhood
+# representation to support the zone-specific LR comparison.
+#
+# These are zone-specific downstream exclusions only; the sections remain part
+# of the broader retained cohort where appropriate.
 zone_exclude_sections <- list(
-  Myeloid = c("1239"),
-  Mesenchymal = character(0),
-  Vascular = c("928")
+  Myeloid      = c("1239"),
+  Mesenchymal  = character(0),
+  Vascular     = c("928")
 )
 
 # Build hotspot -> kNN neighbors in corrected pixel space
