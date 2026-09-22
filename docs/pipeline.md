@@ -174,9 +174,11 @@ Seeds are centralized in `config.R`.
 
 Do not change these values once the corresponding results are finalized.
 
-Stage 08 should be re-run with the fixed LR permutation seed before the public
-release if the manuscript results were originally generated before this seed was
-introduced.
+Stage 08 uses 1000 hotspot-label permutations with the fixed
+`lr_permutation` seed. The final seeded run was validated against the earlier
+unseeded analysis: observed ligand–receptor scores were unchanged, and the
+downstream LR shortlist is based on observed scores rather than permutation
+p-values.
 
 ---
 
@@ -232,14 +234,15 @@ those outputs into manuscript panels.
 `figure2.R` currently generates:
 
 - Figure 2a: scRNA-seq UMAP.
-- Figure 2b: percentage of hotspot spots.
-- Figure 2c: spatial hotspot maps.
+- Figure 2b: percentage of spots with a non-zero lymphocyte NNLS coefficient
+  across all 14 Visium sections.
+- Figure 2c: spatial lymphocyte hotspot maps for the retained sections.
 - Figure 2d: DeepTIL-inferred hotspot lymphoid composition.
 - Figure 2e: paired DeepTIL lymphoid abundance in hotspot versus background
   pseudobulks.
 
-Before public release, `figure2.R` should be refactored to remove hard-coded
-local Windows paths and use `config.R` / environment-based paths instead.
+Figure-specific inputs resolve through `EPN_FIGURE_INPUT_ROOT`, while analysis
+outputs resolve through `config.R` and the configured stage directories.
 
 ---
 
@@ -268,25 +271,16 @@ Methods and/or stage-02b comments rather than being inferred from the code alone
 
 ---
 
-## 9. Items to resolve before public release
+## 9. Remaining release tasks
 
-The following are genuine reproducibility items still requiring attention:
+Before public release:
 
-1. **Stage 00 final message:** replace the undefined `rerun_root` variable in the
-   final `message()` call.
-2. **GEO → internal section mapping:** provide a mapping or a fetch/arrangement
-   script showing how GSE195661 samples become directories named `459`, `459_2`,
-   `723`, etc.
-3. **Figure 2 paths:** remove hard-coded `D:/...` paths and source `config.R`.
-4. **Figure 2 UMAP coordinates:** document the provenance of
-   `harmony_umap.coords.tsv.gz`, or generate/deposit it reproducibly.
-5. **DeepTIL/SES:** record the exact software/version used.
-6. **Stage 08 section set:** document why section `723` is excluded from the
-   ligand–receptor analysis.
-7. **NicheNet:** record the exact source/release/version of the local NicheNet
-   RDS resources.
-8. **CellChatDB:** pin a version or commit rather than relying indefinitely on
-   the moving `main` branch.
-9. Re-run stage 08 with the fixed permutation seed and verify that the final
-   conclusions are unchanged.
+1. Deposit the derived reproducibility artifacts described in
+   `docs/data_sources.md`.
+2. Ensure the final software environment is documented in
+   `docs/software_environment.md`.
+3. Run the cleaned analysis and figure scripts once from the final repository
+   layout to confirm that all configured paths and dependencies resolve.
+4. Verify that any clinical annotations not originating from the documented
+   public datasets are appropriately described and handled.
 
