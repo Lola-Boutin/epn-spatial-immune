@@ -47,19 +47,17 @@ For example:
 Each section directory must contain the Visium matrix plus the associated
 `spatial/` files required by stage 00.
 
-### Important mapping requirement
+### GEO sample mapping
 
-Stage 00 derives `section_id` directly from the directory name. Therefore an
-external user needs an explicit mapping from GEO sample identifiers to the
-internal section IDs above.
+Stage 00 derives `section_id` directly from the local directory name.
 
-Before public release, provide either:
+The mapping between GEO sample accessions and the internal section IDs used
+throughout this repository is provided in:
 
-- a small mapping table in the repository, or
-- a download/arrangement script that creates the expected directory names from
-  the GEO files.
+`docs/geo_section_mapping.tsv`
 
-The mapping should contain no unnecessary clinical information.
+This table contains only the GEO accession and corresponding internal
+section identifier.
 
 ---
 
@@ -264,16 +262,20 @@ Stage 08 uses three external ligand–receptor resources.
 
 ### CellChatDB
 
-The current script downloads `CellChatDB.human.rda` from the CellChat GitHub
-repository at runtime and extracts ligand–receptor interactions belonging to
-secreted signaling, ECM–receptor and cell–cell contact classes.
+Stage 08 uses `CellChatDB.human.rda` from the CellChat GitHub repository and
+extracts ligand–receptor interactions belonging to secreted signaling,
+ECM–receptor and cell–cell contact classes.
 
-Before public release, pin the exact CellChat release or commit used rather than
-depending on a moving `main` branch.
+The resource is pinned to CellChat repository commit:
+
+`592ba49cf4b72130e27eb47a217faf5f84a54f07`
+
+The stage 08 script downloads the resource directly from that pinned commit,
+avoiding dependence on the moving `main` branch.
 
 ### CellPhoneDB
 
-CellPhoneDB interactions are obtained through the R package `liana`:
+CellPhoneDB interactions are obtained through LIANA using:
 
 ```r
 liana::select_resource("CellPhoneDB")
@@ -283,19 +285,12 @@ The `liana` package version should be captured in the reproducible R environment
 
 ### NicheNet
 
-When NicheNet is enabled, stage 08 expects local copies of:
+Stage 08 expects local copies of the following NicheNet v2 resources:
 
 ```text
 ligand_target_matrix_nsga2r_final.rds
 lr_network_human_21122021.rds
 weighted_networks_nsga2r_final.rds
-```
-
-These files are not downloaded by the current script and are not distributed in
-this repository.
-
-Before public release, record the exact source URL/release/version used for each
-resource.
 
 ---
 
@@ -303,9 +298,12 @@ resource.
 
 Stage 11 obtains Hallmark and Reactome gene sets at runtime through `msigdbr`.
 
-The gene sets themselves should not be copied into this repository. The
-`msigdbr` package version should be captured in the final reproducible software
-environment.
+The manuscript analysis used:
+
+- `msigdbr` 26.1.0
+
+The gene sets themselves are not redistributed in this repository. Package
+version information is also recorded in `docs/software_environment.md`.
 
 ---
 
@@ -348,16 +346,15 @@ derived reproducibility artifacts are deposited separately.
 
 ---
 
-## 12. Provenance items to finalize before release
+## 12. Remaining release tasks
 
-Before making the repository public, confirm and document:
+The major input and resource provenance items used by the analysis have been
+documented above.
 
-1. GEO sample → internal section-ID mapping for GSE195661.
-2. Provenance/generation of `harmony_umap.coords.tsv.gz`.
-3. Exact DeepTIL/SES version.
-4. Exact NicheNet resource source/release.
-5. Exact CellChatDB release/commit.
-6. Final software/package versions for the R environment.
-7. Whether any additional clinical annotations used in the manuscript came
-   from published supplementary material or from collaborators, and ensure the
-   appropriate publication/consent handling is documented.
+Before public release:
+
+- deposit the derived reproducibility artifacts described in section 10;
+- ensure the final repository software environment is recorded in
+  `docs/software_environment.md`;
+- verify that any clinical annotations not originating from the documented
+  public datasets are appropriately described and handled.
