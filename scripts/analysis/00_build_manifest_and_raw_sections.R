@@ -399,4 +399,7 @@ qc_df <- bind_rows(qc_rows) %>% arrange(section_id)
 write_tsv(qc_df, file.path(log_dir, "phase0_qc_summary.tsv"))
 write_lines(save_log, file.path(log_dir, "phase0_save_log.txt"))
 
-message("Phase 0 v2 fixed done. Raw per-section objects and tissue-aware spot tables saved under: ", rerun_root)
+message(
+  "Stage 00 complete. Raw per-section objects saved under: ",
+  raw_vis_dir
+)
