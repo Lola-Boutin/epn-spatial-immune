@@ -119,7 +119,7 @@ k_neighbors <- THRESH$hotspot_knn
 n_top_pairs <- 30
 
 # Permutation depth for top-pair validation
-n_perm <- 200
+n_perm <- 1000
 
 # Run toggles
 run_cellchatdb  <- TRUE
