@@ -154,8 +154,10 @@ under the configured DeepTIL results directory.
 This file is used for Figure 2d and 2e: lymphoid composition of hotspot
 pseudobulks and paired hotspot-versus-background lymphoid abundance.
 
-The DeepTIL/SES software version used for the manuscript must be recorded before
-public release.
+The manuscript analysis used
+   `AutoCompare_SES_windows_011.pl` (calling `SES-Fred-007.r`), followed by
+   `deeptil-004.jl`. Exact script checksums and provenance are recorded in
+   `docs/data_sources.md`.
 
 ---
 
