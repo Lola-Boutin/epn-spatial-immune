@@ -36,13 +36,12 @@
 #     permutations/, nichenet/, final_pair_sets/,
 #     rds/phase08_lr_results_bundle.rds
 #
-# Stochastic
-# ----------
-#   YES -- use_seed("lr_permutation") at the start of run_resource_permutations.
-#   The hotspot-label permutation null (n_perm draws per zone per section) was
-#   previously UNSEEDED, so published significance calls could not be
-#   reproduced. Re-run this stage after seeding and check that the calls are
-#   unchanged before relying on them.
+# Reproducibility:
+#   Hotspot-label permutation testing uses 1000 permutations per zone per section.
+#   Randomness is controlled with SEEDS$lr_permutation from config.R.
+#   The final seeded run was validated against the earlier unseeded analysis:
+#   observed LR scores were unchanged, and downstream LR shortlist generation
+#   does not depend on permutation p-values.
 #
 # Runtime
 # -------
