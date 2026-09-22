@@ -308,6 +308,17 @@ url <- "https://raw.githubusercontent.com/jinworks/CellChat/592ba49cf4b72130e27e
   lr
 }
 
+# CellPhoneDB resource provenance
+# LIANA 0.1.14, GitHub commit:
+# 6cab46c54234f861ea176c3de77c4b8aa45ecb3d
+#
+# Final resource used in this study:
+# CellPhoneDB_pairs_raw.tsv
+# SHA-256:
+# b1745bc9c4680d4d8cb93bc5b4cfc5611c16377713d09339ea81a8d2011f3a32
+#
+# The CellPhoneDB resource is obtained via:
+# liana::select_resource("CellPhoneDB")
 load_cellphonedb_resource <- function() {
   if (!requireNamespace("liana", quietly = TRUE)) {
     warning("Package 'liana' not installed; skipping CellPhoneDB resource.")
