@@ -104,6 +104,29 @@ The exact tumor-augmented reference used for the final results should be
 deposited as a derived artifact because the sampling step is stochastic.
 
 ---
+## Figure 1 broad pediatric brain tumor cohort
+
+Figure 1 uses data derived from the Open Pediatric Brain Tumor Atlas
+(OpenPBTA), release v23.
+
+OpenPBTA integrates pediatric brain tumor specimens from the Children's Brain
+Tumor Network (CBTN) and the Pacific Pediatric Neuro-Oncology Consortium
+(PNOC).
+
+The Figure 1 analysis uses a derived metadata table containing 781 samples:
+
+`merged_abundance_filtered_allimmune_with_tumor_type.tsv`
+
+The table includes sample-level histology, anatomical location and tumor-status
+annotations together with DeepTIL/SES immune abundance estimates. It should not
+be interpreted as the complete OpenPBTA v23 cohort.
+
+The corresponding DeepTIL results are stored as 19 histology-specific files:
+
+`figure_inputs/figure1/deeptil_results/SES_CIBERSORTx_*.txt`
+
+The upstream OpenPBTA study metadata identify the loaded study as matching
+release v23.
 
 ## 3. Figure 2 scRNA-seq UMAP
 
