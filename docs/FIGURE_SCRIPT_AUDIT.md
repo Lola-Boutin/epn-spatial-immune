@@ -54,15 +54,14 @@ Spatial hotspot inputs resolve from the `hotspots` stage and DeepTIL results
 resolve from the configured `deeptil` stage. The panel-A label was corrected
 from `snRNA-seq UMAP` to `scRNA-seq UMAP`.
 
-**Important unresolved manuscript issue:** panel 2b currently computes hotspot
-percentages only for `GOOD_SECTIONS` and then assigns 0% to the other sections
-when building the all-section bar chart. Because hotspot calls do not exist for
-those other sections, those zeros are not measured values. In addition, the
-hotspot definition is based on within-section quantiles, so hotspot percentage
-is largely a property of the definition rather than a directly comparable
-biological quantity. The cleaned script preserves the existing panel for
-compatibility but adds an explicit warning comment. This panel should be
-reconsidered before final preprint release.
+Panel 2b was revised during cleanup. It now reports the percentage of spots
+with a non-zero lymphocyte NNLS coefficient for all 14 Visium sections, using
+the section-level QC output from stage 02. The six retained sections are
+highlighted and the remaining sections are shown for comparison.
+
+This replaces the earlier implementation based on hotspot percentages, which
+was inappropriate for cross-section comparison because hotspot status is
+defined using within-section quantiles.
 
 ### Figure 3 and Supplementary Figure S1
 
