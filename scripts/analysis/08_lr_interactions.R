@@ -364,6 +364,20 @@ load_cellphonedb_resource <- function() {
 # weighted_networks_nsga2r_final.rds
 # SHA-256:
 # 3de79d664b09a5cc89b569fa9d8b0e8ad650f07f968d0d41f9c1cb7a00032e3a
+# Upstream source:
+# NicheNet v2 resources, Zenodo record 7074291
+# DOI: 10.5281/zenodo.7074291
+#
+# MD5 checksums matching the Zenodo files:
+# ligand_target_matrix_nsga2r_final.rds
+# b09606b04b2d4490418d9028c0e58b9f
+#
+# lr_network_human_21122021.rds
+# 2a155f81e9ffffd5d5e709fe66bcc465
+#
+# weighted_networks_nsga2r_final.rds
+# 80014dee22df42e98d1c608731c685b5
+
 organism_nichenet <- "human"
 nichenet_resource_dir <- file.path(out_res, "nichenet")
 dir.create(nichenet_resource_dir, recursive = TRUE, showWarnings = FALSE)
