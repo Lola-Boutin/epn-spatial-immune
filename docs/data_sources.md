@@ -220,8 +220,14 @@ gamma-delta T cells
 NK cells
 ```
 
-The DeepTIL/SES version used for the manuscript is not yet recorded in
-`config.R` and must be added before public release.
+SES scores were generated using AutoCompare_SES_windows_011.pl
+(calling SES-Fred-007.r), followed by deeptil-004.jl.
+Exact script SHA-256 checksums:
+AutoCompare_SES_windows_011.pl:
+4f60a52cfee887830c934cce3921d63eed0862ec313861271360f0a51587a739
+
+deeptil-004.jl:
+d32771b5eecaf6fc08a0255958ce37f535b25eae84373347c79108a2d87c53ce
 
 Because this is an external, non-scripted step, the final output table used for
 the paper should be included in the derived-data deposit.
