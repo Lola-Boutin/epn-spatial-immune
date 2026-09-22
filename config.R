@@ -195,7 +195,7 @@ CIBERSORTX <- list(
 DEEPTIL <- list(
   input  = "pseudobulk_cpm_CIBERSORTx.tsv via CIBERSORTx fractions",
   output = "SES_CIBERSORTx_EPN_pseudobulk.txt",
-  version = NA_character_   # TODO: record tool version used
+  version = "AutoCompare_SES_windows_011.pl + deeptil-004.jl"
 )
 
 # -----------------------------------------------------------------------------
