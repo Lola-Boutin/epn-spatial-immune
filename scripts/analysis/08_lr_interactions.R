@@ -283,7 +283,9 @@ aggregate_top_pairs <- function(score_df, zone_target, topN = 30) {
 # -------------------------
 load_cellchat_resource <- function() {
   tmp_rda <- tempfile(fileext = ".rda")
-  url <- "https://github.com/jinworks/CellChat/raw/main/data/CellChatDB.human.rda"
+# CellChatDB.human.rda pinned for reproducibility.
+# CellChat repository commit: 592ba49cf4b72130e27eb47a217faf5f84a54f07
+url <- "https://raw.githubusercontent.com/jinworks/CellChat/592ba49cf4b72130e27eb47a217faf5f84a54f07/data/CellChatDB.human.rda"
   utils::download.file(url, tmp_rda, mode = "wb")
   e <- new.env(parent = emptyenv())
   load(tmp_rda, envir = e)
