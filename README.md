@@ -3,9 +3,8 @@
 Analysis code for:
 
 > Truong P, Mirzazadeh R, Lundeberg J, Blomgren K, Boutin L.
-> *Spatial immune profiling reveals lymphocyte-confining myeloid–mesenchymal
-> niches and T-cell therapeutic opportunity in pediatric ependymoma.*
-> Manuscript in preparation.
+> Spatial immune profiling reveals lymphocyte confinement to myeloid–mesenchymal niches and heterogeneous therapeutic T-cell opportunity in pediatric ependymoma
+
 
 Correspondence: lola.boutin@ki.se
 
